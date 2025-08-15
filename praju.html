@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Japanese - Master Japanese Language in 3 Months</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d2d2d;
+            overflow-x: hidden;
+            background: #f9fafb;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #c026d3;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c026d3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #f5f5f5;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #e5e7eb;
+            font-weight: 400;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #c026d3;
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 2rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #a21caf;
+            transform: translateY(-2px);
+        }
+
+        /* Course Details Section */
+        .course-details {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1f2937;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #c026d3;
+            border-radius: 2px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card h3 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .course-list {
+            list-style: none;
+        }
+
+        .course-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .course-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        /* Instructor Section */
+        .instructor {
+            padding: 5rem 0;
+            background: #1f2937;
+            color: white;
+            text-align: center;
+        }
+
+        .instructor-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .instructor-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: url('https://media.licdn.com/dms/image/v2/D4D03AQEsAKjuqQrabw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1682589981182?e=1758153600&v=beta&t=qKRkJhP0b9W42EDU20g8cQw0X3rWmN6fwpS_yBHtlpY') center/cover;
+            border: 4px solid #e5e7eb;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote {
+            font-style: italic;
+            color: #4b5563;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 0.9rem;
+        }
+
+        /* Japanese Culture Section */
+        .japanese-culture {
+            padding: 5rem 0;
+            background: #f1f5f9;
+        }
+
+        .culture-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .culture-card h3 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            background: #f9fafb;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            background: #c026d3;
+            color: white;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Japanese Quote Section */
+        .japanese-quote {
+            padding: 5rem 0;
+            background: url('https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .japanese-quote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(17, 24, 39, 0.75);
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .japanese-text {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif JP', serif;
+            color: #f5f5f5;
+        }
+
+        .english-translation {
+            font-size: 1rem;
+            font-style: italic;
+            color: #e5e7eb;
+        }
+
+        /* Japanese Seasons Section */
+        .seasons-section {
+            padding: 5rem 0;
+            background: url('https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            position: relative;
+        }
+
+        .seasons-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(17, 24, 39, 0.8);
+        }
+
+        .seasons-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+
+        .season-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #1f2937;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .phone-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.2;
+            animation: float 8s ease-in-out infinite;
+            color: #c026d3;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        /* Cherry Blossom Animation */
+        .cherry-blossom {
+            position: fixed;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background: url('https://img.icons8.com/emoji/48/000000/cherry-blossom.png') center/contain no-repeat;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .course-grid, .benefits-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Japanese Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 10%; font-size: 4rem;">桜</div>
+        <div class="floating-element" style="top: 20%; right: 15%; font-size: 3rem;">富士</div>
+        <div class="floating-element" style="bottom: 30%; left: 20%; font-size: 3.5rem;">侍</div>
+        <div class="floating-element" style="bottom: 20%; right: 10%; font-size: 4rem;">和</div>
+        <div class="floating-element" style="top: 40%; left: 5%; font-size: 3rem;">鳥居</div>
+        <div class="floating-element" style="top: 60%; right: 5%; font-size: 2.5rem;">忍者</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Japanese Master</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#course">Course</a></li>
+                <li><a href="#instructor">Instructor</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1> IKIGAI JAPANESE COURSE</h1>
+            <p class="hero-subtitle">BECOME MASTER IN JAPANESE JUST IN 3 MONTHS</p>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <h3>LEARN</h3>
+                </div>
+                <div class="feature-item">
+                    <h3>EARN</h3>
+                </div>
+                <div class="feature-item">
+                    <h3>UNLOCK</h3>
+                </div>
+            </div>
+
+            <p style="font-size: 1.2rem; margin: 2rem 0;">INTERNATIONAL CAREER & JOB OPPORTUNITIES</p>
+
+            <a href="#contact" class="cta-button">GET FREE CONSULTATION</a>
+        </div>
+    </section>
+
+    <!-- Japanese Quote Section -->
+    <section class="japanese-quote">
+        <div class="container">
+            <div class="quote-content">
+                <div class="japanese-text">千里の道も一歩から。</div>
+                <div class="english-translation">THE JOURNEY OF THOUSAND MILES STARTS WITH A SINGLE STEP.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Details Section -->
+    <section id="course" class="course-details">
+        <div class="container">
+            <h2 class="section-title">COURSE DETAILS</h2>
+
+            <div class="course-grid">
+                <div class="course-card fade-in">
+                    <h3>📚 Basic Foundation</h3>
+                    <ul class="course-list">
+                        <li>7 Days Hiragana Mastery</li>
+                        <li>7 Days Katakana Mastery</li>
+                        <li>Master Class N5</li>
+                        <li>110 Hours Training</li>
+                        <li>Japanese Script Writing</li>
+                    </ul>
+                </div>
+
+                <div class="course-card fade-in">
+                    <h3>🎯 Advanced Skills</h3>
+                    <ul class="course-list">
+                        <li>Kanji Study (110 Characters)</li>
+                        <li>Vocabulary Preparation</li>
+                        <li>Grammar & Sentence Structure</li>
+                        <li>Listening Practice</li>
+                        <li>Cultural Context Learning</li>
+                    </ul>
+                </div>
+
+                <div class="course-card fade-in">
+                    <h3>🏆 JLPT Preparation</h3>
+                    <ul class="course-list">
+                        <li>JLPT Based Mastery Course</li>
+                        <li>JLPT Practice Batch - 15 Days</li>
+                        <li>Tricks & Tips to Crack JLPT</li>
+                        <li>Mock Tests & Assessments</li>
+                        <li>Certification Guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section id="instructor" class="instructor">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">ABOUT INSTRUCTOR</h2>
+
+            <div class="instructor-card">
+                <div class="instructor-image"></div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Prajakta Bhosale</h3>
+                <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+                    <p>✓ Internationally Certified Japanese Language Tutor</p>
+                    <p>✓ Pursued Bachelors Degree In Electronics Engineering</p>
+                    <p>✓ A Japanese Language Enthusiast</p>
+                    <p>✓ Participated In Multiple Cultural Exchange Programs:</p>
+                    <p style="margin-left: 20px;">• 'Window Into Japan'</p>
+                    <p style="margin-left: 20px;">• 'Japan Habba'</p>
+                    <p style="margin-left: 20px;">Organized By Japan Foundation & Consulate General Japan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students review -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">WHAT OUR STUDENTS SAY</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="quote">"Prajakta-sensei’s teaching made learning Hiragana and Katakana so easy! I passed
+                        N5 with confidence."</p>
+                    <p class="author">— Steve Martis, N5 Certified</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="quote">"The cultural insights and practice tests were game-changers. I felt fully prepared
+                        for the JLPT N5."</p>
+                    <p class="author">— Rushikesh Chougule, Student</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="quote">"Prajakta’s engaging style and clear explanations helped me master N5 vocabulary in
+                        just weeks!"</p>
+                    <p class="author">— Viraj  Mali, Student</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Japanese Culture Section -->
+    <section class="japanese-culture">
+        <div class="container">
+            <h2 class="section-title">🎌 DISCOVER JAPANESE CULTURE</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 3rem;">
+                <div class="culture-card">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🌸</div>
+                    <h3>Sakura (Cherry Blossoms)</h3>
+                    <p>Experience the beauty of Japan's most iconic symbol. Learn about hanami (flower viewing)
+                        traditions and seasonal celebrations.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🗾</div>
+                    <h3>Traditional Arts</h3>
+                    <p>Explore calligraphy (書道), origami (折り紙), and tea ceremony (茶道) through language learning.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">⛩️</div>
+                    <h3>Japanese Festivals</h3>
+                    <p>Learn about matsuri culture, from Gion Matsuri to modern celebrations, and understand their
+                        cultural significance.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🥢</div>
+                    <h3>Food Culture</h3>
+                    <p>Discover washoku (和食) - traditional Japanese cuisine, dining etiquette, and food-related
+                        vocabulary.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏯</div>
+                    <h3>History & Architecture</h3>
+                    <p>From ancient temples to modern cities, understand Japan's architectural evolution and historical
+                        periods.</p>
+                </div>
+
+                <div class="culture-card">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎭</div>
+                    <h3>Modern Pop Culture</h3>
+                    <p>Explore anime, manga, J-pop, and contemporary Japanese entertainment that's taking the world by
+                        storm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">BENEFITS OF JAPANESE STUDY</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌏</div>
+                    <h3>Global Communication</h3>
+                    <p>Increase The Ability To Communicate With People Internationally</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Cognitive Benefits</h3>
+                    <p>Increase Analytical Thinking Hence Good For Memory & Health Benefits</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💼</div>
+                    <h style="text-align: center;">Career Growth</h3>
+                    <p>Increase Career Prospects & Job Opportunities</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏢</div>
+                    <h3>Job Opportunities</h3>
+                    <p>JOB Opportunities In Japanese Companies In Japan & In India</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">⭐</div>
+                    <h3>Stand Out</h3>
+                    <p>Japanese Will Set You Apart From Crowd</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Japanese Seasons Section -->
+    <section class="seasons-section">
+        <div class="container seasons-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">四季 - THE FOUR SEASONS IN JAPANESE CULTURE</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 3rem;">
+                <div class="season-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌸</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">春 (Haru)</h3>
+                    <p>Spring - Cherry blossoms, new beginnings, and school year starts</p>
+                </div>
+
+                <div class="season-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">☀️</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">夏 (Natsu)</h3>
+                    <p>Summer - Festivals, fireworks, and cicada songs</p>
+                </div>
+
+                <div class="season-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🍂</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">秋 (Aki)</h3>
+                    <p>Autumn - Colorful leaves, harvest moon, and cultural festivals</p>
+                </div>
+
+                <div class="season-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">❄️</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">冬 (Fuyu)</h3>
+                    <p>Winter - Snow festivals, hot springs, and New Year traditions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">GET FREE 1 TO 1 CONSULTATION</h2>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Call Now</h3>
+                    <div class="phone-number">+91 9421216959</div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <div class="phone-number">+91 9421216959</div>
+                    <p>Quick response guaranteed!</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🎯</div>
+                    <h3>Free Consultation</h3>
+                    <p>REQUEST A FREE 1 TO 1 CONSULTATION CALL</p>
+                    <a href="tel:+9421216759" class="cta-button" style="margin-top: 1rem;">ENQUIRE NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.course-card, .benefit-item, .culture-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Cherry Blossom Animation
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('cherry-blossom');
+            petal.style.left = `${Math.random() * 100}vw`;
+            petal.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            petal.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 10000);
+        }
+
+        // Create petals at intervals
+        setInterval(createPetal, 300);
+
+        // Floating animation for Japanese characters
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 1.5}s`;
+        });
+    </script>
+</body>
+
+</html>
